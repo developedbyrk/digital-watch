@@ -1,0 +1,34 @@
+ body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #digital-watch {
+            width: 350px; /* Increase the width of the digital watch box */
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(135deg, #1b3c57, #2e5874);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+        }
+
+        #time {
+            font-size: 70px;
+            margin-top: 20px; /* Increase the spacing above the time */
+        }
+
+        #date,
+        #day {
+            font-size: 24px; /* Increase the font size of the date and day by 10px */
+        }
+
+        #date-day-wrapper {
+            display: flex;
+            justify-content: space-between;
+        }

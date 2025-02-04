@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #digital-watch {
+            width: 350px; /* Increase the width of the digital watch box */
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(135deg, #1b3c57, #2e5874);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+        }
+
+        #time {
+            font-size: 70px;
+            margin-top: 20px; /* Increase the spacing above the time */
+        }
+
+        #date,
+        #day {
+            font-size: 24px; /* Increase the font size of the date and day by 10px */
+        }
+
+        #date-day-wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div id="digital-watch">
+        <div id="date-day-wrapper">
+            <div id="date"></div>
+            <div id="day"></div>
+        </div>
+        <div id="time"></div>
+    </div>
+
+    <script>
+        function updateDigitalWatch() {
+                const dateElement = document.getElementById('date');
+                const dayElement = document.getElementById('day');
+                const timeElement = document.getElementById('time');
+
+                const now = new Date();
+
+                let hours = now.getHours();
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const seconds = now.getSeconds().toString().padStart(2, '0');
+
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12;
+
+                const year = now.getFullYear();
+                const month = (now.getMonth() + 1).toString().padStart(2, '0');
+                const day = now.getDate().toString().padStart(2, '0');
+
+                const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const dayOfWeek = daysOfWeek[now.getDay()];
+
+                timeElement.innerText = `${hours}:${minutes}:${seconds} ${ampm}`;
+                dateElement.innerText = `${year}-${month}-${day}`;
+                dayElement.innerText = dayOfWeek;
+            }
+
+            updateDigitalWatch(); // Update the digital watch immediately
+            setInterval(updateDigitalWatch, 1000); // Update the digital watch every second
+    </script>
+</body>
+</html>
